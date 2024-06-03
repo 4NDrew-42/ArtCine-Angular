@@ -1,0 +1,69 @@
+// Import Angular Material styles
+@use "@angular/material" as mat;
+
+// Styles for the signup-main mat-card
+.signup-main {
+  background-color: gray;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  max-width: 500px; // Limit the card width
+  margin: 10px; // Center the card horizontally
+  justify-content: center;
+}
+
+// Styles for the signup-title mat-card-title
+.signup-title {
+  font-size: 24px; // Set font size
+  color: white; // Set text color
+}
+
+// Styles for the signup-card-subtitle mat-card-subtitle
+.signup-card-subtitle {
+  color: #ccc;
+  // margin: 5px;
+}
+
+// Styles for the signup-form-start mat-card-content
+.signup-form-start {
+  margin-top: 20px; // Add some top margin
+}
+
+// Styles for the signup-form form
+.signup-form {
+  display: flex;
+  flex-direction: column; // Arrange form fields in a column
+}
+
+// Styles for the form fields
+.mat-form-field {
+  width: 100%; // Set width to 100% of parent
+}
+
+// Styles for the password-field input
+.mat-form-field.mat-password-field {
+  color: white; // Set text color
+}
+
+// Styles for the signup-button mat-card-actions
+.signup-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+mat-card-actions button {
+  // background-color: #3df321; /* Set button background color */
+  color: white; /* Set text color to white */
+  background-color: cornflowerblue;
+  width: 150px;
+  height: 40px;
+  font-size: 18px;
+}
+
+// Responsive styles
+@media screen and (max-width: 600px) {
+  .signup-main {
+    padding: 20px; // Reduce padding for smaller screens
+    max-width: 90%; // Increase max-width for smaller screens
+  }
+}

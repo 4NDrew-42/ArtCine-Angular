@@ -1,0 +1,39 @@
+// Import Angular Material styles
+@use '@angular/material' as mat;
+
+.director-card-header {
+    position: relative;
+    background-color: black;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .director-card-title {
+    font-size: 20px;
+    color: hsl(0, 4%, 79%);
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .director-card-content {
+    padding: 20px;
+    font-size: 18px;
+    color: hsl(0, 0%, 18%);
+    background-color: hsl(0, 1%, 78%);
+    margin-top: 1px;
+  }
+  .fill-remaining-space {
+    flex: 1 1 auto;
+}
+  .dir-close-button{
+    height: 25px;
+    width: 25px;
+    font-weight: bold;
+    background-color: #C8753D;
+    border-radius: 1px;
+    border: 1px solid #C8753D;
+    padding-bottom: 5px;
+    cursor: pointer;  
+
+  }

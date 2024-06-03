@@ -1,0 +1,71 @@
+// Import Angular Material styles
+@use "@angular/material" as mat;
+
+.container {
+  background-color: gray;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 10px; // Center the card horizontally
+  border: 1px solid rgb(96, 95, 95);
+  padding: 20px; /* Add padding */
+}
+/* Target the mat-card-header */
+mat-card-header {
+  background-color: transparent; /* Make header background transparent */
+  color: white; /* Set text color to white */
+  text-align: center;
+}
+
+/* Target the mat-card-title within mat-card-header */
+mat-card-title {
+  font-size: 24px; /* Set font size */
+  font-weight: bold; /* Set font weight to bold */
+}
+mat-card-subtitle {
+  color: white;
+  font-weight: 200;
+  margin: 10px;
+  text-align: center;
+}
+/* Target the mat-card-content */
+mat-card-content {
+  padding: 20px 10; /* Add padding */
+  justify-content: center;
+}
+/* Target the mat-form-field */
+mat-form-field {
+  width: 100%; /* Set width to 100% */
+  margin-bottom: 10px; /* Add margin bottom */
+}
+
+/* Target the mat-card-actions */
+mat-card-actions {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center align content */
+}
+
+/* Target the button within mat-card-actions */
+mat-card-actions button {
+  // background-color: #3df321; /* Set button background color */
+  color: white; /* Set text color to white */
+  background-color: cornflowerblue;
+}
+
+/* Hover effect for button */
+mat-card-actions button:hover {
+  background-color: cornflowerblue; /* Darker shade of blue on hover */
+}
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  mat-card-title {
+    font-size: 24px; /* Keep font size same for smaller screens */
+  }
+
+  mat-card-subtitle {
+    font-size: 16px; /* Keep font size same for smaller screens */
+  }
+}

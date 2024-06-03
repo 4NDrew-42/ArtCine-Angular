@@ -1,0 +1,236 @@
+// Import Angular Material styles
+@use '@angular/material' as mat;
+.main{
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background color */
+}
+.navbar{
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background color */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+}
+
+ .user-profile {
+  color: rgb(243, 240, 240);
+   margin: 8%;
+ }
+h1 {
+  font-size: 35px;
+  font-weight: 500;
+  margin-left: 550px ;
+  margin-bottom: 50px;
+}
+.user-info-display {
+  border-bottom: 1px solid rgba(73, 72, 72, 0.25);
+  padding: 0.9em 0;
+  margin: 0.9em 0;
+}
+
+.user-info-display label {
+  font-size: 16px;
+  color: #C0C0C0;
+}
+
+.user-info-display span {
+  position: relative;
+  left: 10%;
+  font-size: 14px;
+  color: #C0C0C0
+}
+
+.user-container {
+  color: hsl(0, 0%, 99%);
+   padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+   margin: 0% 0% 0% 0%;
+  background-color: rgba(0, 0, 0, 0.7); 
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); 
+  border-radius: 10px; /* Add border-radius for rounded corners */
+
+
+}
+.user-info, .update-user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+   background-color: rgba(0, 0, 0, 0.5); /* Darker semi-transparent black background color on hover */
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px; /* Add border-radius for rounded corners */
+
+
+}
+.update-user-info h2{
+  margin-bottom: 10px;
+}
+.example-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-user {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  margin: 5px;
+  padding: 10px;
+  width: 70%;
+}
+.button-container {
+  display: flex;
+  gap: 10px;
+
+}
+button {
+  width: 50%;
+}
+.update-button{
+  background-color: #5F0F40;
+  color: white; 
+}
+.spacer {
+  height: 150px; // Adjust the height to create desired space
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  //  font-family: "Poppins", sans-serif;
+}
+
+/* Custom CSS */
+.content {
+  scroll-behavior: smooth;
+  margin-top: 20px;
+}
+.content h2{
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 35px;
+  font-weight: 500;
+}
+// Movie Cards Favorite Movies
+// Styling
+.favorite-movies-container {
+  display: grid;
+  background-color: black;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.favorite-movies-container .movie-cards {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.movie-cards .card {
+  position: relative;
+  color: white;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+
+img {
+  width: 100%;
+  height: 100%;
+  border: 6px solid white;
+  transition: all 0.5s;
+}
+img:hover {
+  transform: translateX(10px) translateY(-10px) scale(1.1);
+}
+
+.card .cardContent {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(91, 32, 32, 0.8) 100%);
+  padding: 45% 4% 0 4%;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.movie-cards .card:hover .cardContent {
+  opacity: 1;
+}
+
+mat-card-header {
+  position: absolute;
+  align-items: center;
+  top: 0;
+  margin-top: 10px;
+}
+
+mat-card-title {
+  font-size: 1.8em;
+  font-weight: 500;
+  margin-bottom: 10px;
+  align-items: center;
+}
+mat-card-subtitle {
+  color: white;
+  font-size: 1.4em;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2em;
+  opacity: 0;
+  width: 100%;
+  height: 80%;
+  transition: 1s ease out;
+}
+.actions button {
+    width: 60%;
+}
+
+mat-icon {
+  // font-family: 'Material Icons';
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+mat-icon:hover {
+  transform: scale(1.5);
+}
+
+.actions:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .user-container {
+    margin: 20px 5%;
+  }
+  
+  h1 {
+    margin-left: 5%;
+  }
+
+  .update-user {
+    width: 90%;
+  }
+
+  button {
+    width: 70%;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,54 @@
+// Import Angular Material styles
+@use "@angular/material" as mat;
+
+.main-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: lightgray;
+}
+
+.container {
+  background-color: grey; /* Semi-transparent black background */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+  text-align: center;
+  width: 80%; /* Set container width to 80% of the viewport width */
+  max-width: 500px; /* Set maximum width to 500px */
+}
+
+.container h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.container button {
+  margin-top: 20px;
+  width: 200px;
+  height: 60px;
+  background-color: cornflowerblue;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.container button:first-child {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 30px; /* Adjust padding for smaller screens */
+  }
+
+  .container h1 {
+    font-size: 36px; /* Decrease font size for smaller screens */
+  }
+
+  .container button {
+    width: 140px; /* Adjust button width for smaller screens */
+  }
+}

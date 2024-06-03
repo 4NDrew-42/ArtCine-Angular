@@ -1,0 +1,84 @@
+// Import Angular Material styles
+@use '@angular/material' as mat;
+// Target the parent container of the mat-card elements (e.g., a div)
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 20px; /* Gap between grid items */
+    padding: 20px; /* Add padding to the container */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background color */
+}
+
+.movies-grid mat-card {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background color for cards */
+    padding: 20px; /* Add padding to the movie cards */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    color: white; /* Set text color to white */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.movies-grid mat-card:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker semi-transparent black background color on hover */
+}
+
+// Target the mat-card component
+mat-card {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Box shadow for depth effect */
+}
+
+// Target the mat-dialog-content within mat-card
+.button-container {
+    display: flex;
+    justify-content: space-around; /* Arrange buttons with space around */
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+.button-container :last-child{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin-top: 15px;
+}
+.button-container mat-icon{
+    font-size: 14px;
+    position: absolute;
+}
+// Target the mat-card-title within mat-dialog-content
+mat-card-title {
+    font-size: 20px;
+    font-weight: 300px;
+    margin-bottom: 10px; /* Add some spacing below the title */
+}
+
+// Target the mat-card-subtitle within mat-dialog-content
+mat-card-subtitle {
+    img {
+        width: 350px;
+        object-fit: cover; /* Maintain aspect ratio and cover the container */
+        border-radius: 10px; /* Add border-radius for rounded corners */
+        justify-content: center;
+    }
+}
+
+
+.custom-button {
+    background-color: #C8753D; /* Button background color */
+    color: white;
+    font-weight: 150px;
+    font-size: 12px;
+}
+.mat-icon {
+    transform: scale(1.5); /* Scale mat-icons */
+}
+// Adjust styles for smaller screens
+@media screen and (max-width: 768px) {
+    .movies-grid {
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); /* Adjust grid columns for smaller screens */
+    }
+
+    mat-dialog-content {
+        max-width: 200px; /* Adjust max-width for smaller screens */
+    }
+}

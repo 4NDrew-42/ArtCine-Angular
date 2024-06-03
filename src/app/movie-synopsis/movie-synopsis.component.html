@@ -1,0 +1,11 @@
+<mat-card>
+    <mat-card-header class="synopsis-card-header" *ngIf="data?.movieName">
+        <mat-card-title class="synopsis-card-title">{{ data.movieName}}</mat-card-title>
+        <span class="fill-remaining-space"></span>
+        <button class="dir-close-button" aria-label="Close the Synopsis details button"
+            mat-dialog-close>&#10008;</button>
+    </mat-card-header>
+    <mat-card-content class="synopsis-card-content">
+        <p>{{ data.description }}</p>
+    </mat-card-content>
+</mat-card>
