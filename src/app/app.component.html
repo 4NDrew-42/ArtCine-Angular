@@ -1,2 +1,17 @@
-<!-- <app-navbar></app-navbar> -->
-<router-outlet></router-outlet>
+<div class="main-page">
+  <h1>ArtCine</h1>
+  <button
+    mat-raised-button
+    (click)="openUserRegistrationDialog()"
+    color="primary"
+  >
+    Register
+  </button>
+  <button mat-raised-button (click)="openUserLoginDialog()" color="primary">
+    Login
+  </button>
+
+  <button mat-raised-button color="primary" (click)="openMoviesDialog()">
+    All Movies
+  </button>
+</div>

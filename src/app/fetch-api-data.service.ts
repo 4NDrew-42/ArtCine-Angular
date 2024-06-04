@@ -12,24 +12,12 @@ import { tap, take } from 'rxjs';
 // API URL for fetching data
 const apiUrl = 'https://art-cine-be3340ead7b8.herokuapp.com/';
 
-/**
- * Service for fetching data from the API.
- */
 @Injectable({
   providedIn: 'root',
 })
 export class FetchApiDataService {
-  /**
-   * Constructs the FetchApiDataService.
-   * @param http - The HttpClient module for making HTTP requests.
-   */
   constructor(private http: HttpClient) {}
 
-  /**
-   * Sends user registration data to the backend.
-   * @param userDetails - User registration details.
-   * @returns An observable of the registration result.
-   */
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
@@ -37,11 +25,6 @@ export class FetchApiDataService {
       .pipe(catchError(this.handleError));
   }
 
-  /**
-   * Sends user login data to the backend.
-   * @param userDetails - User login details.
-   * @returns An observable of the login result.
-   */
   public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
@@ -49,10 +32,6 @@ export class FetchApiDataService {
       .pipe(catchError(this.handleError));
   }
 
-  /**
-   * Retrieves all movies from the database.
-   * @returns An observable of the movies data.
-   */
   getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
