@@ -10,10 +10,11 @@
       <mat-form-field class="form-inputs">
         <input
           matInput
-          [(ngModel)]="userData.userName"
-          placeholder="Username"
+          [(ngModel)]="userData.username"
+          placeholder="username"
           type="text"
-          name="Username"
+          name="username"
+          autocomplete="username"
           required
         />
       </mat-form-field>
@@ -24,6 +25,7 @@
           placeholder="Password"
           type="password"
           name="Password"
+          autocomplete="current-password"
           required
         />
       </mat-form-field>

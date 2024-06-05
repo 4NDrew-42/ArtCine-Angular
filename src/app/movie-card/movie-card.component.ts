@@ -13,18 +13,18 @@ import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.compone
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
-  styleUrls: ['./movie-card.component.scss']
+  styleUrls: ['./movie-card.component.scss'],
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
 
-  genre: any = "";
+  genre: any = '';
 
-  director: any = "";
+  director: any = '';
 
   user: any = {};
 
-  userData = { UserId: "", favoritemovie: [] }
+  userData = { UserId: '', favoritemovie: [] };
 
   favoritemovie: any[] = [];
 
@@ -39,7 +39,7 @@ export class MovieCardComponent implements OnInit {
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar
-  ) { }
+  ) {}
 
   /**
    * Lifecycle hook that is called after data-bound properties of a directive are initialized.
@@ -50,38 +50,38 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-     * Fetches all movies from the API.
-     */
+   * Fetches all movies from the API.
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
-      console.log("movies from API", this.movies)
+      console.log('movies from API', this.movies);
     });
   }
 
   /**
-     * Opens a dialog displaying genre details.
-     * @param genre - The genre of the movie.
-     * @param description - The description of the genre.
-     */
+   * Opens a dialog displaying genre details.
+   * @param genre - The genre of the movie.
+   * @param description - The description of the genre.
+   */
 
   openGenreDialog(genre: string, description: string): void {
     this.dialog.open(GenreInfoComponent, {
       data: {
         genre: genre,
-        description: description
+        description: description,
       },
-      width: '500px'
+      width: '500px',
     });
   }
 
   /**
-     * Opens a dialog displaying director details.
-     * @param director - The name of the director.
-     * @param bio - The biography of the director.
-     * @param birthdate - The birthdate of the director.
-     */
-  openDirectorDialog(director: string, bio: string, birthdate: string,): void {
+   * Opens a dialog displaying director details.
+   * @param director - The name of the director.
+   * @param bio - The biography of the director.
+   * @param birthdate - The birthdate of the director.
+   */
+  openDirectorDialog(director: string, bio: string, birthdate: string): void {
     this.dialog.open(DirectorInfoComponent, {
       data: {
         director: director,
@@ -93,16 +93,16 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-    * Opens a dialog displaying movie synopsis.
-    * @param movieName - The name of the movie.
-    * @param description - The synopsis of the movie.
-    */
+   * Opens a dialog displaying movie synopsis.
+   * @param title - The name of the movie.
+   * @param description - The synopsis of the movie.
+   */
 
-  openSynopsisDialog(movieName: string, description: string): void {
+  openSynopsisDialog(title: string, description: string): void {
     this.dialog.open(MovieSynopsisComponent, {
       data: {
-        movieName: movieName,
-        description: description
+        title: title,
+        description: description,
       },
       width: '500px',
     });
@@ -121,31 +121,29 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-    * Checks if a movie is in the user's favorite list.
-    * @param movie - The movie to check.
-    * @returns True if the movie is in the favorite list, false otherwise.
-    */
+   * Checks if a movie is in the user's favorite list.
+   * @param movie - The movie to check.
+   * @returns True if the movie is in the favorite list, false otherwise.
+   */
   isFav(movie: any): boolean {
     return this.favoritemovie.includes(movie._id);
   }
 
   /**
-    * Toggles a movie in the user's favorite list.
-    * @param movie - The movie to toggle.
-    */
+   * Toggles a movie in the user's favorite list.
+   * @param movie - The movie to toggle.
+   */
   toggleFav(movie: any): void {
     console.log('toggleFav called with movie:', movie);
     const isFavorite = this.isFav(movie);
     console.log('isFavorite:', isFavorite);
-    isFavorite
-      ? this.deleteFavMovies(movie)
-      : this.addFavMovies(movie);
+    isFavorite ? this.deleteFavMovies(movie) : this.addFavMovies(movie);
   }
 
   /**
-     * Adds a movie to the user's favorite list.
-     * @param movie - The movie to add to favorites.
-     */
+   * Adds a movie to the user's favorite list.
+   * @param movie - The movie to add to favorites.
+   */
   addFavMovies(movie: any): void {
     let user = localStorage.getItem('user');
     if (user) {
@@ -153,48 +151,50 @@ export class MovieCardComponent implements OnInit {
       console.log('user:', parsedUser);
       this.userData.UserId = parsedUser._id;
       console.log('userData:', this.userData);
-      this.fetchApiData.addFavouriteMovies(parsedUser.userName, movie._id).subscribe((resp) => {
-        console.log('server response:', resp);
-        localStorage.setItem('user', JSON.stringify(resp));
-        // Add the movie ID to the favoritemovie array
-        this.favoritemovie.push(movie._id);
-        // Show a snack bar message
-        this.snackBar.open(`${movie.movieName} has been added to your favorites`, 'OK', {
-          duration: 3000,
+      this.fetchApiData
+        .addFavouriteMovies(parsedUser.username, movie._id)
+        .subscribe((resp) => {
+          console.log('server response:', resp);
+          localStorage.setItem('user', JSON.stringify(resp));
+          // Add the movie ID to the favoritemovie array
+          this.favoritemovie.push(movie._id);
+          // Show a snack bar message
+          this.snackBar.open(
+            `${movie.title} has been added to your favorites`,
+            'OK',
+            {
+              duration: 3000,
+            }
+          );
         });
-      });
     }
   }
 
   /**
-     * Deletes a movie from the user's favorite list.
-     * @param movie - The movie to remove from favorites.
-     */
+   * Deletes a movie from the user's favorite list.
+   * @param movie - The movie to remove from favorites.
+   */
   deleteFavMovies(movie: any): void {
     let user = localStorage.getItem('user');
     if (user) {
       let parsedUser = JSON.parse(user);
-      this.fetchApiData.deleteFavoriteMovie(parsedUser.userName, movie._id).subscribe((resp) => {
-        localStorage.setItem('user', JSON.stringify(resp));
-        // Remove the movie ID from the favoritemovie array
-        this.favoritemovie = this.favoritemovie.filter((id) => id !== movie._id);
-        // Show a snack bar message
-        this.snackBar.open(`${movie.movieName} has been removed from your favorites`, 'OK', {
-          duration: 3000,
+      this.fetchApiData
+        .deleteFavoriteMovie(parsedUser.username, movie._id)
+        .subscribe((resp) => {
+          localStorage.setItem('user', JSON.stringify(resp));
+          // Remove the movie ID from the favoritemovie array
+          this.favoritemovie = this.favoritemovie.filter(
+            (id) => id !== movie._id
+          );
+          // Show a snack bar message
+          this.snackBar.open(
+            `${movie.title} has been removed from your favorites`,
+            'OK',
+            {
+              duration: 3000,
+            }
+          );
         });
-      });
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
